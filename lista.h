@@ -8,4 +8,4 @@ typedef struct {
     int tamInfo, qtd;
 }Lista;
 
-void inicializa_lista(lista &l, int t);
+void inicializa_lista(Lista &l, int t);
