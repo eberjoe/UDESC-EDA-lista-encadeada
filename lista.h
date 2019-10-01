@@ -7,3 +7,5 @@ typedef struct {
     Elemento *cabeca;
     int tamInfo, qtd;
 }Lista;
+
+void inicializa_lista(lista &l, int t);
