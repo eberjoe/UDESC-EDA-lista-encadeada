@@ -19,8 +19,8 @@ int insereNoInicio(Lista *l, void *info) {
         return 0; //falta memória
     }
     memcpy(p->info, info, l->tamInfo);
+    p->proximo = l->cabeca;
     l->cabeca = p;
-    p->proximo = NULL;
     l->qtd++;
     return 1; //sucesso
 }
