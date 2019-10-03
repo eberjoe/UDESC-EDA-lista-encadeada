@@ -40,3 +40,16 @@ int removeDoInicio(Lista *l, void *info) {
     l->qtd--;
     return 1; //sucesso
 }
+
+void mostra_lista(Lista l, void (*mostra) (void *)) {
+    if (lista_vazia(&l))
+        printf("Lista vazia!\n");
+    else {
+        printf("Dados da lista:\n");
+        Elemento *p = l.cabeca;
+        while (p) {
+            mostra(p->info);
+            p = p->proximo;
+        }
+    }
+}
