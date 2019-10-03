@@ -2,7 +2,15 @@
 
 int main () {
     Lista l1;
-    float c = 123.91239;
+    float x = 123.91239, y;
+
     inicializa_lista(&l1, sizeof(float));
-    printf("%d", insereNoInicio(&l1, &c));
+
+    printf("%d\n", insereNoInicio(&l1, &x));
+
+    printf("%d\n", removeDoInicio(&l1, &y));
+
+    printf("%d\n", removeDoInicio(&l1, &y));
+
+    printf("%f", y);
 }

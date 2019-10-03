@@ -9,6 +9,10 @@ void inicializa_lista(Lista *l, int t) {
     l->qtd = 0;
 }
 
+int lista_vazia(Lista *l) {
+    return !l->qtd;
+}
+
 int insereNoInicio(Lista *l, void *info) {
     Elemento *p = malloc(sizeof(Elemento));
     if (p == NULL)
@@ -22,5 +26,17 @@ int insereNoInicio(Lista *l, void *info) {
     p->proximo = l->cabeca;
     l->cabeca = p;
     l->qtd++;
+    return 1; //sucesso
+}
+
+int removeDoInicio(Lista *l, void *info) {
+    if (lista_vazia(l))
+        return ERROLISTA_VAZIA;
+    Elemento *p = l->cabeca;
+    memcpy(info, p->info, l->tamInfo);
+    l->cabeca = p->proximo;
+    free(p->info);
+    free(p);
+    l->qtd--;
     return 1; //sucesso
 }
