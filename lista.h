@@ -9,3 +9,4 @@ typedef struct {
 }Lista;
 
 void inicializa_lista(Lista *l, int t);
+int insereNoInicio(Lista *l, void *info);
