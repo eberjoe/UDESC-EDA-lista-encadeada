@@ -60,9 +60,9 @@ int insereNoFim(Lista *l, void *info) {
             q = q->proximo;
         }
         q->proximo = p;
-        l->qtd++;
-        return 1; // sucesso
     }
+    l->qtd++;
+    return 1; // sucesso
 }
 
 int removeDoFim(Lista *l, void *info) {
@@ -93,4 +93,18 @@ void mostra_lista(Lista l, void (*mostra) (void *)) {
             p = p->proximo;
         }
     }
+}
+
+void limpa_lista(Lista *l) {
+    if (lista_vazia(l))
+        return;
+    Elemento *p = l->cabeca, *q;
+    while (p) {
+        q = p;
+        p = p->proximo;
+        free(q->info);
+        free(q);
+    }
+    l->cabeca = NULL;
+    l->qtd = 0;
 }

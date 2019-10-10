@@ -12,7 +12,7 @@ int main () {
 
     x = 3.12;
 
-    insereNoInicio(&l1, &x); //testa inserção no início
+    insereNoInicio(&l1, &x); // testa inserção no início
 
     mostra_lista(l1, mostra_float); // mostra toda a lista
 
@@ -25,6 +25,16 @@ int main () {
     removeDoInicio(&l1, &y); // testa remoção do início
 
     removeDoFim(&l1, &y); // testa remoção do fim
+
+    mostra_lista(l1, mostra_float); // mostra toda a lista
+
+    x = 9;
+
+    insereNoFim(&l1, &x);
+
+    mostra_lista(l1, mostra_float); // mostra toda a lista
+
+    limpa_lista(&l1); // testa limpeza
 
     mostra_lista(l1, mostra_float); // mostra toda a lista
 

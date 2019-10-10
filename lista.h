@@ -17,3 +17,4 @@ int removeDoInicio(Lista *l, void *info);
 int insereNoFim(Lista *l, void *info);
 int removeDoFim(Lista *l, void *info);
 void mostra_lista(Lista l, void (*mostra) (void *));
+void limpa_lista(Lista *l);
