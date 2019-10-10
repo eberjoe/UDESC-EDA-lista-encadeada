@@ -8,17 +8,28 @@ int main () {
 
     inicializa_lista(&l1, sizeof(float));
 
-    printf("%d\n", insereNoInicio(&l1, &x));
+    insereNoInicio(&l1, &x); // testa inserção no início
 
-    mostra_lista(l1, mostra_float);
+    x = 3.12;
 
-    printf("%d\n", removeDoInicio(&l1, &y));
+    insereNoInicio(&l1, &x); //testa inserção no início
 
-    printf("%d\n", removeDoInicio(&l1, &y)); // erro por lista vazia
+    mostra_lista(l1, mostra_float); // mostra toda a lista
 
-    printf("Valor %f", y);
+    x = 5;
+
+    insereNoFim(&l1, &x); // testa inserção no final
+
+    mostra_lista(l1, mostra_float); // mostra toda a lista
+
+    removeDoInicio(&l1, &y); // testa remoção do início
+
+    removeDoFim(&l1, &y); // testa remoção do fim
+
+    mostra_lista(l1, mostra_float); // mostra toda a lista
+
 }
 
-void mostra_float( void *x) {
+void mostra_float(void *x) {
     printf("%f\n", *(float*) x);
 }
