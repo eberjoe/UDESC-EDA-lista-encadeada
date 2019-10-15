@@ -14,6 +14,10 @@ int main () {
 
     insereNoInicio(&l1, &x); // testa inserção no início
 
+    x=0.6;
+
+    insereNoInicio(&l1, &x); // testa inserção no início
+
     mostra_lista(l1, mostra_float); // mostra toda a lista
 
     x = 5;
@@ -34,10 +38,17 @@ int main () {
 
     mostra_lista(l1, mostra_float); // mostra toda a lista
 
+    x = 12;
+
+    insereNaPos(&l1, &x, 2);
+
+    mostra_lista(l1, mostra_float); // mostra toda a lista
+
     limpa_lista(&l1); // testa limpeza
 
     mostra_lista(l1, mostra_float); // mostra toda a lista
 
+    return 0;
 }
 
 void mostra_float(void *x) {

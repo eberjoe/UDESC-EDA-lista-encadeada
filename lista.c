@@ -82,6 +82,30 @@ int removeDoFim(Lista *l, void *info) {
     return 1; // sucesso
 }
 
+int insereNaPos(Lista *l, void *info, int pos) {
+    if (pos < 0 || pos > l->qtd)
+        return ERRO_POS_INVALIDA;
+    if (!pos)
+        return insereNoInicio(l, info);
+    Elemento *p = l->cabeca;
+    int cont;
+    for (cont = 0; cont < pos-1; cont++)
+        p = p->proximo;
+    Elemento *novo = malloc(sizeof(Elemento));
+    if (!novo)
+        return 0; // faltou memória
+    novo->info = malloc(l->tamInfo);
+    if (!novo->info){
+        free(novo);
+        return 0; //falta memória
+    }
+    memcpy(novo->info, info, l->tamInfo);
+    novo->proximo = p->proximo;
+    p->proximo = novo;
+    l->qtd++;
+    return 1; // sucesso
+}
+
 void mostra_lista(Lista l, void (*mostra) (void *)) {
     if (lista_vazia(&l))
         printf("\nLista vazia!\n");
@@ -96,8 +120,6 @@ void mostra_lista(Lista l, void (*mostra) (void *)) {
 }
 
 void limpa_lista(Lista *l) {
-    if (lista_vazia(l))
-        return;
     Elemento *p = l->cabeca, *q;
     while (p) {
         q = p;

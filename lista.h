@@ -1,4 +1,5 @@
 #define ERROLISTA_VAZIA -1
+#define ERRO_POS_INVALIDA -2
 
 typedef struct ele {
     void *info;
@@ -16,5 +17,6 @@ int insereNoInicio(Lista *l, void *info);
 int removeDoInicio(Lista *l, void *info);
 int insereNoFim(Lista *l, void *info);
 int removeDoFim(Lista *l, void *info);
+int insereNaPos(Lista *l, void *info, int pos);
 void mostra_lista(Lista l, void (*mostra) (void *));
 void limpa_lista(Lista *l);
