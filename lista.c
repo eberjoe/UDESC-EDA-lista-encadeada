@@ -13,16 +13,21 @@ int lista_vazia(Lista *l) {
     return !l->qtd;
 }
 
+Elemento* aloca_ele(void *x, int t){
+	Elemento *p = malloc(sizeof(Elemento));
+	if (!p)
+		return NULL; // falta memória
+	p->info = malloc(t);
+	if (!p->info){
+		free(p);
+		return NULL; // falta memória
+	}
+	memcpy(p->info, x, t);
+	return p;
+}
+
 int insereNoInicio(Lista *l, void *info) {
-    Elemento *p = malloc(sizeof(Elemento));
-    if (!p)
-        return 0; // falta memória
-    p->info = malloc(l->tamInfo);
-    if (!p->info) {
-        free(p);
-        return 0; // falta memória
-    }
-    memcpy(p->info, info, l->tamInfo);
+    Elemento *p = aloca_ele(info, l->tamInfo);
     p->proximo = l->cabeca;
     l->cabeca = p;
     l->qtd++;
@@ -42,15 +47,7 @@ int removeDoInicio(Lista *l, void *info) {
 }
 
 int insereNoFim(Lista *l, void *info) {
-    Elemento *p = malloc(sizeof(Elemento));
-    if (!p)
-        return 0; // falta memória
-    p->info = malloc(l->tamInfo);
-    if (!p->info) {
-        free(p);
-        return 0; // falta memória
-    }
-    memcpy(p->info, info, l->tamInfo);
+    Elemento *p = aloca_ele(info, l->tamInfo);
     p->proximo = NULL;
     if (!l->cabeca) {
         insereNoInicio(l, info);
@@ -91,15 +88,7 @@ int insereNaPos(Lista *l, void *info, int pos) {
     int cont;
     for (cont = 0; cont < pos-1; cont++)
         p = p->proximo;
-    Elemento *novo = malloc(sizeof(Elemento));
-    if (!novo)
-        return 0; // faltou memória
-    novo->info = malloc(l->tamInfo);
-    if (!novo->info){
-        free(novo);
-        return 0; //falta memória
-    }
-    memcpy(novo->info, info, l->tamInfo);
+    Elemento *novo = aloca_ele(info, l->tamInfo);
     novo->proximo = p->proximo;
     p->proximo = novo;
     l->qtd++;
