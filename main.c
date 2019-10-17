@@ -44,6 +44,10 @@ int main () {
 
     mostra_lista(l1, mostra_float); // mostra toda a lista
 
+    removeDaPos(&l1, &y, 1);
+
+    mostra_lista(l1, mostra_float); // mostra toda a lista
+
     limpa_lista(&l1); // testa limpeza
 
     mostra_lista(l1, mostra_float); // mostra toda a lista
