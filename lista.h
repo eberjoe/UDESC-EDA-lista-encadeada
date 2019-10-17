@@ -19,5 +19,7 @@ int insereNoFim(Lista *l, void *info);
 int removeDoFim(Lista *l, void *info);
 int insereNaPos(Lista *l, void *info, int pos);
 int removeDaPos(Lista *l, void *info, int pos);
+int modificaNaPos(Lista *l, void *info, int pos);
+int leNaPos(Lista *l, void *info, int pos);
 void mostra_lista(Lista l, void (*mostra) (void *));
 void limpa_lista(Lista *l);
