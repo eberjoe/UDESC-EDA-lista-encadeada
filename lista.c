@@ -115,6 +115,42 @@ int removeDaPos(Lista *l, void *info, int pos) {
     return 1; // sucesso
 }
 
+int modificaNaPos(Lista *l, void *info, int pos) {
+    if (lista_vazia(l))
+        return ERROLISTA_VAZIA;
+    if (pos < 0 || pos >= l->qtd)
+        return ERRO_POS_INVALIDA;
+    Elemento *p = l->cabeca;
+    int cont;
+    for (cont = 0; cont < pos; cont++)
+        p = p->proximo;
+    memcpy(p->info, info, l->tamInfo);
+    return 1; // sucesso
+}
+
+int leNaPos(Lista *l, void *info, int pos) {
+    if (lista_vazia(l))
+        return ERROLISTA_VAZIA;
+    if (pos < 0 || pos >= l->qtd)
+        return ERRO_POS_INVALIDA;
+    Elemento *p = l->cabeca;
+    int cont;
+    for (cont = 0; cont < pos; cont++)
+        p = p->proximo;
+    memcpy(info, p->info, l->tamInfo);
+    return 1; // sucesso
+}
+
+int insereNaOrdem(Lista *l, void *info, int (*comp) (void *, void *)) {
+    Elemento *p = l->cabeca;
+    int cont = 0;
+    while (p && comp(info, p->info) > 0) {
+        p = p->proximo;
+        cont++;
+    }
+    return insereNaPos(l, info, cont);
+}
+
 void mostra_lista(Lista l, void (*mostra) (void *)) {
     if (lista_vazia(&l))
         printf("\nLista vazia!\n");

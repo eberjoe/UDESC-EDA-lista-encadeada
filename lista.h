@@ -21,5 +21,6 @@ int insereNaPos(Lista *l, void *info, int pos);
 int removeDaPos(Lista *l, void *info, int pos);
 int modificaNaPos(Lista *l, void *info, int pos);
 int leNaPos(Lista *l, void *info, int pos);
+int insereNaOrdem(Lista *l, void *info, int (*comp) (void *, void *));
 void mostra_lista(Lista l, void (*mostra) (void *));
 void limpa_lista(Lista *l);

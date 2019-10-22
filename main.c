@@ -1,6 +1,7 @@
 #include "lista.h"
 
 void mostra_float( void *x);
+int compara_float(void *x, void *y);
 
 int main () {
     Lista l1;
@@ -48,6 +49,32 @@ int main () {
 
     mostra_lista(l1, mostra_float); // mostra toda a lista
 
+    x = 10000000;
+
+    insereNaOrdem(&l1, &x, compara_float);
+
+    x = 1.2;
+
+    insereNaOrdem(&l1, &x, compara_float);
+
+    x = 13;
+
+    insereNaOrdem(&l1, &x, compara_float);
+
+    mostra_lista(l1, mostra_float);
+
+    x = 144000;
+
+    printf("Modificando a posicao 1");
+
+    modificaNaPos(&l1, &x, 1));
+
+    mostra_lista(l1, mostra_float);
+
+    leNaPos(&l1, &y, 2);
+
+    printf("A posicao 2 tem %f", y);
+
     limpa_lista(&l1); // testa limpeza
 
     mostra_lista(l1, mostra_float); // mostra toda a lista
@@ -58,3 +85,11 @@ int main () {
 void mostra_float(void *x) {
     printf("%f\n", *(float*) x);
 }
+
+int compara_float(void *x, void *y) {
+    float *a = x, *b = y;
+    if (*a > *b) return 1;
+    if (*a < *b) return -1;
+    return 0;
+}
+
