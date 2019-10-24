@@ -157,9 +157,12 @@ void mostra_lista(Lista l, void (*mostra) (void *)) {
     else {
         printf("\nDados da lista:\n");
         Elemento *p = l.cabeca;
+        int count =0;
         while (p) {
+            printf("%d\t", count);
             mostra(p->info);
             p = p->proximo;
+            count++;
         }
     }
 }

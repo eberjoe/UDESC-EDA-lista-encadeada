@@ -12,7 +12,7 @@ int main () {
 
     printf("\nA insercao no inicio de %f %s\n", x, r[insereNoInicio(&l1, &x)]);
 
-    //mostra_lista(l1, mostra_float); // mostra toda a lista
+    mostra_lista(l1, mostra_float); // mostra toda a lista
 
     x = 3.12;
 
