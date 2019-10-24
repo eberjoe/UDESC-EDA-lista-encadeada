@@ -3,7 +3,7 @@
 void mostra_float(void *x);
 int compara_float(void *x, void *y);
 
-int main () {
+int main() {
     Lista l1;
     float x = 123.91239, y;
     char r[2][11] = {"falhou!", "deu certo!"};
