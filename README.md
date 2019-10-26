@@ -7,3 +7,11 @@ Para que a lista possa comportar qualquer tamanho de dado definido pelo programa
 Quando há apenas um ponto de inserção e de extração de elementos, denominado ```cabeca```, o funcionamento desta estrutura é semelhante ao de uma pilha.
 
 ![image](lista.gif)
+
+## Lista de Lista
+
+Mude para o branch ```lista-de-lita``` para acessar o código deste exercício.
+
+## Lista Duplamente Encadeada
+
+Mude para o branch ```lista-duplamente-encadeada``` para acessar o código deste exercício.
