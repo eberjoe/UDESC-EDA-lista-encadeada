@@ -10,7 +10,7 @@ Quando há apenas um ponto de inserção e de extração de elementos, denominad
 
 ## Lista de Lista
 
-Mude para o branch ```lista-de-lita``` para acessar o código deste exercício.
+Mude para o branch ```lista-de-lista``` para acessar o código deste exercício.
 
 ## Lista Duplamente Encadeada
 
