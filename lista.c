@@ -28,6 +28,8 @@ EleDuplo* aloca_ele(void *x, int t){
 
 int insereNoInicio(LDE *l, void *info) {
     EleDuplo *p = aloca_ele(info, l->tamInfo);
+    if (!p)
+        return 0; // falta memória
     if ((p->suc = l->cabeca))
         p->suc->ant = p;
     l->cabeca = p;
@@ -41,8 +43,8 @@ int removeDoInicio(LDE *l, void *info) {
         return ERROLDE_VAZIA;
     EleDuplo *p = l->cabeca;
     memcpy(info, p->info, l->tamInfo);
-    l->cabeca = p->suc;
-    p->suc->ant = NULL;
+    if (l->cabeca = p->suc)
+        p->suc->ant = NULL;
     l->qtd--;
     free(p->info);
     free(p);
@@ -51,6 +53,8 @@ int removeDoInicio(LDE *l, void *info) {
 
 int insereNoFim(LDE *l, void *info) {
     EleDuplo *p = aloca_ele(info, l->tamInfo);
+    if (!p)
+        return 0; // falta memória
     p->suc = NULL;
     if (!l->cabeca) {
         insereNoInicio(l, info);
@@ -93,6 +97,8 @@ int insereNaPos(LDE *l, void *info, int pos) {
     for (cont = 0; cont < pos-1; cont++)
         p = p->suc;
     EleDuplo *novo = aloca_ele(info, l->tamInfo);
+    if (!novo)
+        return 0; // falta memória
     novo->suc = p->suc;
     novo->ant = p;
     p->suc = novo;
