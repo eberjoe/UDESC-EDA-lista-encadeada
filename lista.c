@@ -28,6 +28,8 @@ Elemento* aloca_ele(void *x, int t){
 
 int insereNoInicio(Lista *l, void *info) {
     Elemento *p = aloca_ele(info, l->tamInfo);
+    if (!p)
+        return 0; // falta memória
     p->proximo = l->cabeca;
     l->cabeca = p;
     l->qtd++;
@@ -48,6 +50,8 @@ int removeDoInicio(Lista *l, void *info) {
 
 int insereNoFim(Lista *l, void *info) {
     Elemento *p = aloca_ele(info, l->tamInfo);
+    if (!p)
+        return 0; // falta memória
     p->proximo = NULL;
     if (!l->cabeca) {
         insereNoInicio(l, info);
@@ -89,6 +93,8 @@ int insereNaPos(Lista *l, void *info, int pos) {
     for (cont = 0; cont < pos-1; cont++)
         p = p->proximo;
     Elemento *novo = aloca_ele(info, l->tamInfo);
+    if (!novo)
+        return 0; // falta memória
     novo->proximo = p->proximo;
     p->proximo = novo;
     l->qtd++;
