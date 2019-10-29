@@ -99,9 +99,9 @@ int insereNaPos(LDE *l, void *info, int pos) {
     EleDuplo *novo = aloca_ele(info, l->tamInfo);
     if (!novo)
         return 0; // falta memória
-    novo->suc = p->suc;
     novo->ant = p;
-    p->suc = novo;
+    if (novo->suc = p->suc)
+        p->suc->ant = novo;
     l->qtd++;
     return 1; // sucesso
 }
