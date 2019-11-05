@@ -118,8 +118,8 @@ int removeDaPos(LDE *l, void *info, int pos) {
     for (cont = 0; cont < pos-1; cont++)
         p = p->suc;
     EleDuplo *x = p->suc;
-    p->suc = x->suc;
-    p->suc->ant = p;
+    if (p->suc = x->suc)
+    	p->suc->ant = p;
     memcpy(info, x->info, l->tamInfo);
     free(x->info);
     free(x);
