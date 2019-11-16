@@ -54,7 +54,7 @@ int insereNoFim(Lista *l, void *info) {
         return 0; // falta memória
     p->proximo = NULL;
     if (!l->cabeca) {
-        insereNoInicio(l, info);
+        return insereNoInicio(l, info);
     } else {
         Elemento *q = l->cabeca;
         while (q->proximo) {
