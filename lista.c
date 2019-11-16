@@ -57,7 +57,7 @@ int insereNoFim(LDE *l, void *info) {
         return 0; // falta memória
     p->suc = NULL;
     if (!l->cabeca) {
-        insereNoInicio(l, info);
+        return insereNoInicio(l, info);
     } else {
         EleDuplo *q = l->cabeca;
         while (q->suc) {
