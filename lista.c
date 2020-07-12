@@ -1,7 +1,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "Lista.h"
+#include "lista.h"
 
 void inicializa_LDE(LDE *l, int t) {
     l->cabeca = NULL;
@@ -92,16 +92,19 @@ int insereNaPos(LDE *l, void *info, int pos) {
         return ERRO_POS_INVALIDA;
     if (!pos)
         return insereNoInicio(l, info);
+    if (pos == l->qtd)
+        return insereNoFim(l, info);
     EleDuplo *p = l->cabeca;
     int cont;
-    for (cont = 0; cont < pos-1; cont++)
+    for (cont = 0; cont < pos; cont++)
         p = p->suc;
     EleDuplo *novo = aloca_ele(info, l->tamInfo);
     if (!novo)
         return 0; // falta memória
-    novo->ant = p;
-    if (novo->suc = p->suc)
-        p->suc->ant = novo;
+    novo->ant = p->ant;
+    novo->suc = p;
+    p->ant->suc = novo;
+    p->ant = novo;
     l->qtd++;
     return 1; // sucesso
 }
@@ -156,9 +159,10 @@ int leNaPos(LDE *l, void *info, int pos) {
 int insereNaOrdem(LDE *l, void *info, int (*comp) (void *, void *)) {
     EleDuplo *p = l->cabeca;
     int cont = 0;
-    while (p && comp(info, p->info) > 0) {
+    while (p) {
+        if (comp(info, p->info) == 1)
+            cont++;
         p = p->suc;
-        cont++;
     }
     return insereNaPos(l, info, cont);
 }
