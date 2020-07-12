@@ -1,4 +1,4 @@
-#include "Lista.h"
+#include "lista.h"
 
 void mostra_float(void *x);
 int compara_float(void *x, void *y);
