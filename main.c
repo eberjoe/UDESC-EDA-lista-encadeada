@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "lista.h"
 
 void mostra_float(void *x);
