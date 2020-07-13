@@ -116,7 +116,7 @@ int removeDaPos(LDE *l, void *info, int pos) {
         return ERRO_POS_INVALIDA;
     if (!pos)
         return removeDoInicio(l, info);
-    if (pos == l->qtd)
+    if (pos == l->qtd - 1)
         return removeDoFim(l, info);
     EleDuplo *p = l->cabeca;
     int cont;
