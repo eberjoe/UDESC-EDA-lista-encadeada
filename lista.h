@@ -1,4 +1,4 @@
-#define ERROLDE_VAZIA -1
+#define ERRO_LDE_VAZIA -1
 #define ERRO_POS_INVALIDA -2
 
 typedef struct ele {
