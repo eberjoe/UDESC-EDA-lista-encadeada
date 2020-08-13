@@ -24,11 +24,3 @@ int leNaPos(LDE *l, void *info, int pos);
 int insereNaOrdem(LDE *l, void *info, int (*comp) (void *, void *));
 void mostra_LDE(LDE l, void (*mostra) (void *));
 void limpa_LDE(LDE *l);
-
-/*para LDE modificar:
-insereNoInicio()
-removeDoInicio()
-insereNoFim()
-insereNaPos()
-removeDaPos()
-*/
