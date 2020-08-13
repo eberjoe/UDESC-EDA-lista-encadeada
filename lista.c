@@ -40,7 +40,7 @@ int insereNoInicio(LDE *l, void *info) {
 
 int removeDoInicio(LDE *l, void *info) {
     if (LDE_vazia(l))
-        return ERROLDE_VAZIA;
+        return ERRO_LDE_VAZIA;
     EleDuplo *p = l->cabeca;
     memcpy(info, p->info, l->tamInfo);
     if ((l->cabeca = p->suc))
@@ -72,7 +72,7 @@ int insereNoFim(LDE *l, void *info) {
 
 int removeDoFim(LDE *l, void *info) {
     if (LDE_vazia(l))
-        return ERROLDE_VAZIA;
+        return ERRO_LDE_VAZIA;
     if (l->qtd == 1)
         return removeDoInicio(l, info);
     EleDuplo *p = l->cabeca;
@@ -133,7 +133,7 @@ int removeDaPos(LDE *l, void *info, int pos) {
 
 int modificaNaPos(LDE *l, void *info, int pos) {
     if (LDE_vazia(l))
-        return ERROLDE_VAZIA;
+        return ERRO_LDE_VAZIA;
     if (pos < 0 || pos >= l->qtd)
         return ERRO_POS_INVALIDA;
     EleDuplo *p = l->cabeca;
@@ -146,7 +146,7 @@ int modificaNaPos(LDE *l, void *info, int pos) {
 
 int leNaPos(LDE *l, void *info, int pos) {
     if (LDE_vazia(l))
-        return ERROLDE_VAZIA;
+        return ERRO_LDE_VAZIA;
     if (pos < 0 || pos >= l->qtd)
         return ERRO_POS_INVALIDA;
     EleDuplo *p = l->cabeca;
